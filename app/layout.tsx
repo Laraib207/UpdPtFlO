@@ -6,6 +6,9 @@ import ThemeProvider from '../context/ThemeContext'
 export const metadata = {
   title: 'Laraib | Portfolio',
   description: 'Personal portfolio built with Next.js and Tailwind CSS',
+  other: {
+    'google-site-verification': '9kYS-oeaGcTlgCSF_f4zeecc2RpfbWbav5awcDmeGaw',
+  },
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {

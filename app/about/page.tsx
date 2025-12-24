@@ -849,6 +849,7 @@
 
 'use client'
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { 
@@ -875,6 +876,12 @@ import {
 } from '@heroicons/react/24/outline'
 
 export default function About() {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -938,7 +945,7 @@ export default function About() {
                 delay: Math.random() * 2,
               }}
             >
-              {['</>','{}','[]','()','fn()','const','let','=>','&&','||'][Math.floor(Math.random() * 10)]}
+              {mounted ? ['</>','{}','[]','()','fn()','const','let','=>','&&','||'][Math.floor(Math.random() * 10)] : '{}'}
             </motion.div>
           ))}
         </div>

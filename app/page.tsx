@@ -13,7 +13,7 @@ import SkillsSection from '../components/SkillsSection'
 import AwardsSection from '../components/AwardsSection'
 import GallerySection from '../components/GallerySection'
 import NewsletterCTA from '../components/NewsletterCTA'
-import Featureplan from '../components/Featureplan'
+import Futureplanes from '../components/Futureplanes'
 
 import Contact from './contact/page'
 
@@ -42,7 +42,7 @@ export default function Home(){
       
         <CTAOverlay />
         <Contact />
-        <Featureplan />
+        <Futureplanes />
 
       </main>
       <FooterSite />

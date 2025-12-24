@@ -291,10 +291,9 @@ export default function Header() {
     { name: 'Work', href: '/work', icon: BriefcaseIcon },
     { name: 'Projects', href: '/#projects', icon: CodeBracketIcon },
     { name: 'Services', href: '/#services', icon: CpuChipIcon },
-    { name: 'About', href: '/about', icon: DocumentTextIcon },
     { name: 'Awards', href: '/#awards', icon: SparklesIcon },
     { name: 'Contact', href: '/contact', icon: EnvelopeIcon },
-    { name: 'FeaturePlan', href: '/featureplan', icon: SparklesIcon },
+    { name: 'Futureplanes', href: '/futureplanes', icon: SparklesIcon },
   ]
 
   return (

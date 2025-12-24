@@ -700,10 +700,16 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useTheme } from '../context/ThemeContext'
+import { useState, useEffect } from 'react'
 import { PlayIcon, ArrowRightIcon, CodeBracketIcon, CommandLineIcon, CpuChipIcon } from '@heroicons/react/24/outline'
 
 export default function HeroBig(){
   const { theme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -761,7 +767,7 @@ export default function HeroBig(){
                 delay: Math.random() * 2,
               }}
             >
-              {['</>','{}','[]','()','fn()','var','const','=>','&&','||'][Math.floor(Math.random() * 10)]}
+              {mounted ? ['</>','{}','[]','()','fn()','var','const','=>','&&','||'][Math.floor(Math.random() * 10)] : '{}'}
             </motion.div>
           ))}
         </div>
