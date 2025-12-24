@@ -4,8 +4,8 @@ import Header from '../components/Header'
 import ThemeProvider from '../context/ThemeContext'
 
 export const metadata = {
-  title: 'Laraib | Portfolio',
-  description: 'Personal portfolio built with Next.js and Tailwind CSS',
+  title: 'Laraib | @iBzA | Technology Enthusiast & Developer',
+  description: 'Personal portfolio built with Next.js and Tailwind CSS. Showcasing projects, skills, and services offered by Laraib.',
   other: {
     'google-site-verification': '9kYS-oeaGcTlgCSF_f4zeecc2RpfbWbav5awcDmeGaw',
   },
