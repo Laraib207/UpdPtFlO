@@ -405,7 +405,7 @@ export default function Header() {
                   href="/contact"
                   className="group px-6 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold shadow-lg shadow-emerald-600/20 hover:shadow-emerald-500/30 transition-all duration-300 flex items-center gap-2"
                 >
-                  <span className="tracking-wide">HIRE ME</span>
+                  <span className="tracking-wide">HIRE</span>
                   <motion.div
                     animate={{ x: [0, 3, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
