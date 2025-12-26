@@ -271,7 +271,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Bars3Icon, XMarkIcon, CodeBracketIcon, CommandLineIcon, CpuChipIcon, DocumentTextIcon, BriefcaseIcon, EnvelopeIcon, SparklesIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon, CodeBracketIcon, CommandLineIcon, CpuChipIcon, DocumentTextIcon, BriefcaseIcon, EnvelopeIcon, SparklesIcon, UserIcon } from '@heroicons/react/24/outline'
 import { useTheme } from '../context/ThemeContext'
 import ThemeToggle from './ThemeToggle'
 
@@ -292,6 +292,7 @@ export default function Header() {
     { name: 'Projects', href: '/#projects', icon: CodeBracketIcon },
     { name: 'Services', href: '/#services', icon: CpuChipIcon },
     { name: 'Awards', href: '/#awards', icon: SparklesIcon },
+    { name: 'About', href: '/about', icon: UserIcon },
     { name: 'Contact', href: '/contact', icon: EnvelopeIcon },
     { name: 'Futureplanes', href: '/futureplanes', icon: SparklesIcon },
   ]
