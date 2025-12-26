@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 import HeaderSimple from '../components/HeaderSimple'
 
 export const metadata = {
-  title: 'Laraib | Portfolio',
+  title: 'Laraib | | @iBzA | Technology Enthusiast & Developer',
   description: 'Personal portfolio built with Next.js and Tailwind CSS',
 }
 

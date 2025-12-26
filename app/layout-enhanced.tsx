@@ -4,7 +4,7 @@ import Header from '../components/Header'
 import ThemeProvider from '../context/ThemeContext'
 
 export const metadata = {
-  title: 'Laraib | Premium Portfolio',
+  title: 'Laraib || @iBzA | Technology Enthusiast & Developer',
   description: 'Personal portfolio built with Next.js and Tailwind CSS - Premium Edition',
 }
 
