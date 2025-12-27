@@ -1,4 +1,3 @@
-import Header from '../components/Header'
 import HeroBig from '../components/HeroBig'
 import SplitIntro from '../components/SplitIntro'
 import ServicesGrid from '../components/ServicesGrid'
@@ -20,7 +19,6 @@ import Contact from './contact/page'
 export default function Home(){
   return (
     <>
-      <Header />
       <main className="pt-20 md:pt-24 bg-white dark:bg-slate-900 transition-colors duration-300">
         <HeroBig />
         <SplitIntro />

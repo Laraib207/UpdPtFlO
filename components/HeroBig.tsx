@@ -749,27 +749,35 @@ export default function HeroBig(){
 
         {/* Code-like floating elements */}
         <div className="absolute inset-0 overflow-hidden">
-          {[...Array(15)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute text-slate-700/20 font-mono text-xs"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -50, 0],
-                opacity: [0.1, 0.3, 0.1],
-              }}
-              transition={{
-                duration: 8 + Math.random() * 4,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-            >
-              {mounted ? ['</>','{}','[]','()','fn()','var','const','=>','&&','||'][Math.floor(Math.random() * 10)] : '{}'}
-            </motion.div>
-          ))}
+          {[...Array(15)].map((_, i) => {
+            // Use deterministic values based on index to avoid hydration mismatch
+            const codeSnippets = ['</>','{}','[]','()','fn()','var','const','=>','&&','||']
+            const deterministicIndex = i % codeSnippets.length
+            const xPosition = (i * 7.5) % 100 // Deterministic x position
+            const yPosition = (i * 11.2) % 100 // Deterministic y position
+            
+            return (
+              <motion.div
+                key={i}
+                className="absolute text-slate-700/20 font-mono text-xs"
+                style={{
+                  left: `${xPosition}%`,
+                  top: `${yPosition}%`,
+                }}
+                animate={{
+                  y: [0, -50, 0],
+                  opacity: [0.1, 0.3, 0.1],
+                }}
+                transition={{
+                  duration: 8 + (i % 4), // Slight variation but deterministic
+                  repeat: Infinity,
+                  delay: (i * 0.2) % 3, // Staggered delay
+                }}
+              >
+                {mounted ? codeSnippets[deterministicIndex] : '{}'}
+              </motion.div>
+            )
+          })}
         </div>
 
         {/* Subtle accent glow */}
