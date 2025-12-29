@@ -326,7 +326,7 @@ export default function SplitIntro(){
               >
                 I build <span className="text-cyan-400 font-semibold">ecommerce & product experiences</span>, focused on 
                 <span className="text-purple-400 font-semibold"> conversions</span> and 
-                <span className="text-pink-400 font-semibold"> delightful UX</span>. I'm available for freelance and collaborations.
+                <span className="text-pink-400 font-semibold"> delightful UX</span>. I'm availabe for collaborations and dissussions on new projects.
               </motion.p>
 
               {/* Feature highlights */}
