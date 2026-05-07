@@ -1,7 +1,7 @@
 import './globals.css'
 import type { ReactNode } from 'react'
 import Header from '../components/Header'
-import ThemeProvider from '../context/ThemeContext'
+import { ThemeProvider } from '../context/ThemeContext'
 
 export const metadata = {
   title: 'Laraib | | @iBzA | Technology Enthusiast & Developer',

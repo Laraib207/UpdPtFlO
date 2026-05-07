@@ -266,268 +266,177 @@
 
 
 
+// 'use client'
+
+// import Link from 'next/link'
+// import { useEffect, useState } from 'react'
+// import { usePathname } from 'next/navigation'
+// import { useTheme } from '../context/ThemeContext'
+
+// export default function Header() {
+//   const [scrolled, setScrolled] = useState(false)
+//   const [mounted, setMounted] = useState(false)
+//   const pathname = usePathname()
+//   const { theme, toggleTheme } = useTheme()
+
+//   useEffect(() => {
+//     setMounted(true)
+//     const onScroll = () => setScrolled(window.scrollY > 16)
+//     window.addEventListener('scroll', onScroll)
+//     return () => window.removeEventListener('scroll', onScroll)
+//   }, [])
+
+//   const linkClass = (href: string) =>
+//     `transition-colors duration-300 ${
+//       pathname === href
+//         ? 'text-[var(--text-primary)]'
+//         : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+//     }`
+
+//   return (
+//     <header className="fixed top-0 left-0 w-full z-50">
+//       <div className="max-w-6xl mx-auto px-4 md:px-8 pt-4">
+//         <div
+//           className={`rounded-full border backdrop-blur-xl transition-all duration-300 ${
+//             scrolled ? 'shadow-[0_10px_40px_rgba(0,0,0,0.18)]' : ''
+//           }`}
+//           style={{
+//             background: 'var(--header-bg-strong)',
+//             borderColor: 'var(--header-border-strong)',
+//           }}
+//         >
+//           <div className="h-16 md:h-[72px] px-5 md:px-7 flex items-center justify-between">
+//             <Link
+//               href="/"
+//               className="text-sm md:text-[15px] uppercase tracking-[0.35em] text-[var(--text-primary)] transition-colors duration-300"
+//             >
+//               Laraib
+//             </Link>
+
+//             <nav className="flex items-center gap-4 md:gap-7 text-[11px] md:text-sm uppercase tracking-[0.22em]">
+//               <Link href="/" className={linkClass('/')}>
+//                 Home
+//               </Link>
+//               <Link href="/about" className={linkClass('/about')}>
+//                 About
+//               </Link>
+//               <Link href="/work" className={linkClass('/work')}>
+//                 Work
+//               </Link>
+//               <Link href="/contact" className={linkClass('/contact')}>
+//                 Contact
+//               </Link>
+
+//               <button
+//                 onClick={toggleTheme}
+//                 aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+//                 className="h-10 w-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105"
+//                 style={{
+//                   background: 'var(--button-muted-bg)',
+//                   border: '1px solid var(--header-border-strong)',
+//                   color: 'var(--text-primary)',
+//                 }}
+//               >
+//                 {mounted ? (theme === 'dark' ? '☀' : '☾') : '◐'}
+//               </button>
+//             </nav>
+//           </div>
+//         </div>
+//       </div>
+//     </header>
+//   )
+// }
+
+
+
+
+
 'use client'
+
 import Link from 'next/link'
-import Image from 'next/image'
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Bars3Icon, XMarkIcon, CodeBracketIcon, CommandLineIcon, CpuChipIcon, DocumentTextIcon, BriefcaseIcon, EnvelopeIcon, SparklesIcon, UserIcon } from '@heroicons/react/24/outline'
+import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { useTheme } from '../context/ThemeContext'
-import ThemeToggle from './ThemeToggle'
 
 export default function Header() {
-  const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const pathname = usePathname()
   const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    setMounted(true)
+    const onScroll = () => setScrolled(window.scrollY > 16)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const navItems = [
-    { name: 'Home', href: '/', icon: CommandLineIcon },
-    { name: 'Work', href: '/work', icon: BriefcaseIcon },
-    { name: 'Projects', href: '/#projects', icon: CodeBracketIcon },
-    { name: 'Services', href: '/#services', icon: CpuChipIcon },
-    { name: 'Awards', href: '/#awards', icon: SparklesIcon },
-    { name: 'About', href: '/about', icon: UserIcon },
-    { name: 'Contact', href: '/contact', icon: EnvelopeIcon },
-    { name: 'Futureplanes', href: '/futureplanes', icon: SparklesIcon },
-  ]
+  const linkClass = (href: string) =>
+    `relative transition-colors duration-300 ${
+      pathname === href
+        ? 'text-[var(--text-primary)]'
+        : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+    }`
 
   return (
-    <>
-      {/* Subtle code pattern background */}
-      <div className="fixed inset-0 -z-50 pointer-events-none">
-        <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: `linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
-        }} />
-      </div>
+    <header className="fixed top-0 left-0 w-full z-50">
+      <div className="max-w-6xl mx-auto px-4 md:px-8 pt-4">
+        <div
+          className={`transition-all duration-300 ${
+            scrolled ? 'shadow-[0_10px_40px_rgba(0,0,0,0.14)]' : ''
+          }`}
+          style={{
+            background: 'var(--header-bg-strong)',
+            border: '1px solid var(--header-border-strong)',
+            borderRadius: '999px',
+            backdropFilter: 'blur(18px)',
+          }}
+        >
+          <div className="h-16 md:h-[72px] px-5 md:px-8 flex items-center justify-between">
+            <Link
+              href="/"
+              className="text-sm md:text-[15px] tracking-[0.32em] uppercase text-[var(--text-primary)]"
+            >
+              Laraib
+            </Link>
 
-      <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled
-          ? 'shadow-lg border-b bg-white/90 border-slate-200 dark:bg-slate-950/95 dark:border-slate-800'
-          : 'bg-white/80 dark:bg-slate-950/80'
-      } backdrop-blur-md`}>
-        
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 relative z-10">
-          <div className="flex items-center justify-between">
-            {/* Logo Section with Image */}
-            <div className="flex items-center gap-6">
-              <Link href="/" className="group flex items-center gap-3">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="relative"
-                >
-                  {/* Logo Container */}
-                  <div className="relative w-32 h-12 md:w-40 md:h-14">
-                    <Image
-                      src="/images/iBzAthelaraib.png"
-                      alt="iBzA thelaraib"
-                      fill
-                      style={{ objectFit: 'contain' }}
-                      priority
-                      className="drop-shadow-lg"
-                    />
-                  </div>
-                  
-                  {/* Hover effect */}
-                  <div className="absolute -inset-2 bg-emerald-500/10 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </motion.div>
-
-                {/* Optional text badge */}
-                <div className="hidden xl:flex flex-col">
-                  <span className="text-xs font-bold text-slate-500 dark:text-slate-400 font-mono tracking-wider">DEVELOPER</span>
-                  <span className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 font-mono">Full Stack</span>
-                </div>
+            <nav className="flex items-center gap-4 md:gap-7 text-[11px] md:text-sm uppercase tracking-[0.22em]">
+              <Link href="/" className={linkClass('/')}>
+                Home
               </Link>
 
-              {/* Desktop Navigation */}
-              <nav className="hidden lg:flex items-center gap-1">
-                {navItems.map((item, index) => {
-                  const IconComponent = item.icon;
-                  return (
-                    <motion.div
-                      key={item.href}
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: index * 0.05 }}
-                    >
-                      <Link
-                        href={item.href}
-                        className="group flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-all duration-200 text-slate-700 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/70"
-                      >
-                        <IconComponent className="w-4 h-4 transition-colors group-hover:text-emerald-500 dark:group-hover:text-emerald-400" />
-                        <span className="font-bold tracking-wide">{item.name}</span>
-                      </Link>
-                    </motion.div>
-                  )
-                })}
-              </nav>
-            </div>
+              <Link href="/about" className={linkClass('/about')}>
+                About
+              </Link>
 
-            {/* Right Side Actions */}
-            <div className="flex items-center gap-3">
-              {/* Code Status Badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: 0.5 }}
-                className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
+              <Link href="/work" className={linkClass('/work')}>
+                Work
+              </Link>
+
+              <Link href="/feature-planet" className={linkClass('/feature-planet')}>
+                Feature Planet
+              </Link>
+
+              <Link href="/contact" className={linkClass('/contact')}>
+                Contact
+              </Link>
+
+              <button
+                onClick={toggleTheme}
+                aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                className="h-10 w-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105"
+                style={{
+                  background: 'var(--button-muted-bg)',
+                  border: '1px solid var(--header-border-strong)',
+                  color: 'var(--text-primary)',
+                }}
               >
-                <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold text-xs font-mono tracking-wider">ONLINE</span>
-              </motion.div>
-
-              {/* Theme Toggle */}
-              <div className="hidden md:block">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <ThemeToggle />
-                </motion.div>
-              </div>
-
-              {/* CTA Button */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: 0.4 }}
-                className="hidden md:block"
-              >
-                <Link
-                  href="/contact"
-                  className="group px-6 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold shadow-lg shadow-emerald-600/20 hover:shadow-emerald-500/30 transition-all duration-300 flex items-center gap-2"
-                >
-                  <span className="tracking-wide">HIRE</span>
-                  <motion.div
-                    animate={{ x: [0, 3, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    <CommandLineIcon className="w-4 h-4" />
-                  </motion.div>
-                </Link>
-              </motion.div>
-
-              {/* Mobile Menu Button */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="lg:hidden p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
-                onClick={() => setOpen(true)}
-                aria-label="Open menu"
-              >
-                <Bars3Icon className="w-6 h-6 text-slate-900 dark:text-white" />
-              </motion.button>
-            </div>
+                {mounted ? (theme === 'dark' ? '☀' : '☾') : '◐'}
+              </button>
+            </nav>
           </div>
         </div>
-
-        {/* Bottom border accent */}
-        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
-      </header>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 lg:hidden"
-          >
-            {/* Backdrop */}
-            <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" onClick={() => setOpen(false)} />
-
-            {/* Menu Panel */}
-            <motion.div
-              initial={{ opacity: 0, x: '100%' }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="absolute right-0 top-0 bottom-0 w-80 max-w-[85vw] bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 shadow-2xl"
-            >
-              <div className="relative h-full flex flex-col p-6">
-                {/* Header */}
-                <div className="flex items-center justify-between mb-8 pb-6 border-b border-slate-200 dark:border-slate-800">
-                  <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-3">
-                    <div className="relative w-32 h-12">
-                      <Image
-                        src="/images/iBzAthelaraib.png"
-                        alt="iBzA thelaraib"
-                        fill
-                        style={{ objectFit: 'contain' }}
-                        className="drop-shadow-lg"
-                      />
-                    </div>
-                  </Link>
-                  <button
-                    onClick={() => setOpen(false)}
-                    className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
-                  >
-                    <XMarkIcon className="w-6 h-6 text-slate-900 dark:text-white" />
-                  </button>
-                </div>
-
-                {/* Navigation */}
-                <nav className="flex flex-col gap-2 flex-1 overflow-y-auto">
-                  {navItems.map((item, index) => {
-                    const IconComponent = item.icon;
-                    return (
-                      <motion.div
-                        key={item.href}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: index * 0.05 }}
-                      >
-                        <Link
-                          href={item.href}
-                          onClick={() => setOpen(false)}
-                          className="group flex items-center gap-3 p-4 rounded-lg font-bold transition-all duration-200 text-slate-800 hover:bg-slate-100 dark:text-white dark:hover:bg-slate-800 border border-transparent hover:border-slate-200 dark:hover:border-slate-700"
-                        >
-                          <IconComponent className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
-                          <span className="tracking-wide">{item.name}</span>
-                        </Link>
-                      </motion.div>
-                    )
-                  })}
-                </nav>
-
-                {/* Bottom Section */}
-                <div className="space-y-4 pt-6 border-t border-slate-200 dark:border-slate-800">
-                  {/* Status */}
-                  <div className="flex items-center gap-2 p-3 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                    <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-                    <span className="text-emerald-600 dark:text-emerald-400 font-bold text-sm font-mono">AVAILABLE FOR WORK</span>
-                  </div>
-
-                  {/* Theme Toggle */}
-                  <div className="flex items-center justify-between p-3 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                    <span className="text-sm font-bold text-slate-700 dark:text-slate-300 tracking-wide">THEME</span>
-                    <ThemeToggle />
-                  </div>
-
-                  {/* CTA Button */}
-                  <Link
-                    href="/contact"
-                    onClick={() => setOpen(false)}
-                    className="w-full px-6 py-3.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold shadow-lg shadow-emerald-600/30 transition-all duration-300 flex items-center justify-center gap-2"
-                  >
-                    <span className="tracking-wide">HIRE ME NOW</span>
-                    <CommandLineIcon className="w-5 h-5" />
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+      </div>
+    </header>
   )
 }
