@@ -351,6 +351,97 @@
 
 
 
+// 'use client'
+
+// import Link from 'next/link'
+// import { useEffect, useState } from 'react'
+// import { usePathname } from 'next/navigation'
+// import { useTheme } from '../context/ThemeContext'
+
+// export default function Header() {
+//   const [scrolled, setScrolled] = useState(false)
+//   const [mounted, setMounted] = useState(false)
+//   const pathname = usePathname()
+//   const { theme, toggleTheme } = useTheme()
+
+//   useEffect(() => {
+//     setMounted(true)
+//     const onScroll = () => setScrolled(window.scrollY > 16)
+//     window.addEventListener('scroll', onScroll)
+//     return () => window.removeEventListener('scroll', onScroll)
+//   }, [])
+
+//   const linkClass = (href: string) =>
+//     `relative transition-colors duration-300 ${
+//       pathname === href
+//         ? 'text-[var(--text-primary)]'
+//         : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+//     }`
+
+//   return (
+//     <header className="fixed top-0 left-0 w-full z-50">
+//       <div className="max-w-6xl mx-auto px-4 md:px-8 pt-4">
+//         <div
+//           className={`transition-all duration-300 ${
+//             scrolled ? 'shadow-[0_10px_40px_rgba(0,0,0,0.14)]' : ''
+//           }`}
+//           style={{
+//             background: 'var(--header-bg-strong)',
+//             border: '1px solid var(--header-border-strong)',
+//             borderRadius: '999px',
+//             backdropFilter: 'blur(18px)',
+//           }}
+//         >
+//           <div className="h-16 md:h-[72px] px-5 md:px-8 flex items-center justify-between">
+//             <Link
+//               href="/"
+//               className="text-sm md:text-[15px] tracking-[0.32em] uppercase text-[var(--text-primary)]"
+//             >
+//               Laraib
+//             </Link>
+
+//             <nav className="flex items-center gap-4 md:gap-7 text-[11px] md:text-sm uppercase tracking-[0.22em]">
+//               <Link href="/" className={linkClass('/')}>
+//                 Home
+//               </Link>
+
+//               <Link href="/about" className={linkClass('/about')}>
+//                 About
+//               </Link>
+
+//               <Link href="/work" className={linkClass('/work')}>
+//                 Work
+//               </Link>
+
+//               <Link href="/feature-planet" className={linkClass('/feature-planet')}>
+//                 Feature Planet
+//               </Link>
+
+//               <Link href="/contact" className={linkClass('/contact')}>
+//                 Contact
+//               </Link>
+
+//               <button
+//                 onClick={toggleTheme}
+//                 aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+//                 className="h-10 w-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105"
+//                 style={{
+//                   background: 'var(--button-muted-bg)',
+//                   border: '1px solid var(--header-border-strong)',
+//                   color: 'var(--text-primary)',
+//                 }}
+//               >
+//                 {mounted ? (theme === 'dark' ? '☀' : '☾') : '◐'}
+//               </button>
+//             </nav>
+//           </div>
+//         </div>
+//       </div>
+//     </header>
+//   )
+// }
+
+
 'use client'
 
 import Link from 'next/link'
@@ -358,9 +449,18 @@ import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { useTheme } from '../context/ThemeContext'
 
+const NAV_LINKS = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/work', label: 'Work' },
+  { href: '/feature-planet', label: 'Features' },
+  { href: '/contact', label: 'Contact' },
+]
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mounted, setMounted] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
   const { theme, toggleTheme } = useTheme()
 
@@ -371,6 +471,22 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname])
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
+
   const linkClass = (href: string) =>
     `relative transition-colors duration-300 ${
       pathname === href
@@ -379,64 +495,124 @@ export default function Header() {
     }`
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50">
-      <div className="max-w-6xl mx-auto px-4 md:px-8 pt-4">
-        <div
-          className={`transition-all duration-300 ${
-            scrolled ? 'shadow-[0_10px_40px_rgba(0,0,0,0.14)]' : ''
-          }`}
-          style={{
-            background: 'var(--header-bg-strong)',
-            border: '1px solid var(--header-border-strong)',
-            borderRadius: '999px',
-            backdropFilter: 'blur(18px)',
-          }}
-        >
-          <div className="h-16 md:h-[72px] px-5 md:px-8 flex items-center justify-between">
-            <Link
-              href="/"
-              className="text-sm md:text-[15px] tracking-[0.32em] uppercase text-[var(--text-primary)]"
-            >
-              Laraib
-            </Link>
-
-            <nav className="flex items-center gap-4 md:gap-7 text-[11px] md:text-sm uppercase tracking-[0.22em]">
-              <Link href="/" className={linkClass('/')}>
-                Home
-              </Link>
-
-              <Link href="/about" className={linkClass('/about')}>
-                About
-              </Link>
-
-              <Link href="/work" className={linkClass('/work')}>
-                Work
-              </Link>
-
-              <Link href="/feature-planet" className={linkClass('/feature-planet')}>
-                Feature Planet
-              </Link>
-
-              <Link href="/contact" className={linkClass('/contact')}>
-                Contact
-              </Link>
-
-              <button
-                onClick={toggleTheme}
-                aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-                className="h-10 w-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105"
-                style={{
-                  background: 'var(--button-muted-bg)',
-                  border: '1px solid var(--header-border-strong)',
-                  color: 'var(--text-primary)',
-                }}
+    <>
+      <header className="fixed top-0 left-0 w-full z-50">
+        <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-8 pt-3 md:pt-4">
+          <div
+            className={`transition-all duration-300 ${
+              scrolled ? 'shadow-[0_10px_40px_rgba(0,0,0,0.14)]' : ''
+            }`}
+            style={{
+              background: 'var(--header-bg-strong)',
+              border: '1px solid var(--header-border-strong)',
+              borderRadius: '999px',
+              backdropFilter: 'blur(18px)',
+            }}
+          >
+            <div className="h-14 md:h-[72px] px-4 md:px-8 flex items-center justify-between">
+              <Link
+                href="/"
+                className="text-xs sm:text-sm md:text-[15px] tracking-[0.22em] md:tracking-[0.32em] uppercase text-[var(--text-primary)] truncate max-w-[160px] sm:max-w-none"
               >
-                {mounted ? (theme === 'dark' ? '☀' : '☾') : '◐'}
-              </button>
+                Laraib
+              </Link>
+
+              <nav className="hidden md:flex items-center gap-4 lg:gap-7 text-[11px] md:text-sm uppercase tracking-[0.18em] md:tracking-[0.22em]">
+                {NAV_LINKS.map((item) => (
+                  <Link key={item.href} href={item.href} className={linkClass(item.href)}>
+                    {item.label}
+                  </Link>
+                ))}
+
+                <button
+                  onClick={toggleTheme}
+                  aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                  className="h-10 w-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105"
+                  style={{
+                    background: 'var(--button-muted-bg)',
+                    border: '1px solid var(--header-border-strong)',
+                    color: 'var(--text-primary)',
+                  }}
+                >
+                  {mounted ? (theme === 'dark' ? '☀' : '☾') : '◐'}
+                </button>
+              </nav>
+
+              <div className="flex items-center gap-2 md:hidden">
+                <button
+                  onClick={toggleTheme}
+                  aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                  className="h-10 w-10 rounded-full flex items-center justify-center transition-all duration-300"
+                  style={{
+                    background: 'var(--button-muted-bg)',
+                    border: '1px solid var(--header-border-strong)',
+                    color: 'var(--text-primary)',
+                  }}
+                >
+                  {mounted ? (theme === 'dark' ? '☀' : '☾') : '◐'}
+                </button>
+
+                <button
+                  onClick={() => setMenuOpen((prev) => !prev)}
+                  aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+                  aria-expanded={menuOpen}
+                  className="h-10 w-10 rounded-full flex items-center justify-center transition-all duration-300"
+                  style={{
+                    background: 'var(--button-muted-bg)',
+                    border: '1px solid var(--header-border-strong)',
+                    color: 'var(--text-primary)',
+                  }}
+                >
+                  <div className="relative w-5 h-5">
+                    <span
+                      className={`absolute left-0 top-1 h-[2px] w-5 rounded bg-current transition-all duration-300 ${
+                        menuOpen ? 'rotate-45 top-[9px]' : ''
+                      }`}
+                    />
+                    <span
+                      className={`absolute left-0 top-[9px] h-[2px] w-5 rounded bg-current transition-all duration-300 ${
+                        menuOpen ? 'opacity-0' : 'opacity-100'
+                      }`}
+                    />
+                    <span
+                      className={`absolute left-0 top-[17px] h-[2px] w-5 rounded bg-current transition-all duration-300 ${
+                        menuOpen ? '-rotate-45 top-[9px]' : ''
+                      }`}
+                    />
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {menuOpen && (
+        <div className="fixed inset-0 z-40 md:hidden">
+          <button
+            aria-label="Close mobile menu backdrop"
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={() => setMenuOpen(false)}
+          />
+          <div className="absolute top-20 left-3 right-3 rounded-[28px] border border-white/10 bg-black/85 backdrop-blur-2xl p-4 shadow-2xl">
+            <nav className="flex flex-col">
+              {NAV_LINKS.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`rounded-2xl px-4 py-4 text-sm uppercase tracking-[0.18em] transition ${
+                    pathname === item.href
+                      ? 'text-white bg-white/10'
+                      : 'text-zinc-400 hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
             </nav>
           </div>
         </div>
-      </div>
-    </header>
+      )}
+    </>
   )
 }
