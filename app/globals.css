@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;800&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500;700;800&display=swap');
 
 /* @tailwind base;
 @tailwind components;
@@ -371,5 +371,270 @@ html.dark {
     top: 12%;
     width: 18rem;
     height: 18rem;
+  }
+}
+
+/* =========================================================
+   iBzA — TECH-NOIR / MISSION CONTROL SYSTEM
+   Brand: iBzA (ecosystem) · Operator: TheLaraib
+   Theme tokens used by the immersive landing experience.
+   100% original styling (inspired feel, not copied).
+   ========================================================= */
+
+:root {
+  /* iBzA core palette — DARK (default) */
+  --ibza-void: #050608;
+  --ibza-panel: #0b0e13;
+  --ibza-panel-2: #11151c;
+  --ibza-line: rgba(255, 255, 255, 0.08);
+  --ibza-line-strong: rgba(255, 255, 255, 0.16);
+  --ibza-amber: #f6b53c;
+  --ibza-amber-soft: rgba(246, 181, 60, 0.14);
+  --ibza-red: #ff4d4d;
+  --ibza-teal: #1aa589;
+  --ibza-text: rgba(255, 255, 255, 0.94);
+  --ibza-text-dim: rgba(255, 255, 255, 0.62);
+  --ibza-text-faint: rgba(255, 255, 255, 0.4);
+  --ibza-mono: 'JetBrains Mono', 'Space Mono', ui-monospace, monospace;
+
+  /* surfaces */
+  --ibza-panel-grad: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
+  --ibza-panel-grad-strong: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025));
+  --ibza-grid-line: rgba(255, 255, 255, 0.05);
+  --ibza-scan-line: rgba(255, 255, 255, 0.03);
+  --ibza-input-bg: rgba(0, 0, 0, 0.3);
+  --ibza-hover: rgba(255, 255, 255, 0.06);
+}
+
+/* LIGHT MODE overrides (applied when html is not .dark) */
+html:not(.dark) .ibza-scope,
+html:not(.dark) .ibza-portal {
+  --ibza-void: #efe9dd;
+  --ibza-panel: #fbf8f1;
+  --ibza-panel-2: #ffffff;
+  --ibza-line: rgba(17, 17, 17, 0.14);
+  --ibza-line-strong: rgba(17, 17, 17, 0.24);
+  --ibza-amber: #b9791a;
+  --ibza-amber-soft: rgba(185, 121, 26, 0.14);
+  --ibza-red: #d83b3b;
+  --ibza-teal: #0e8f74;
+  --ibza-text: #15110a;
+  --ibza-text-dim: rgba(21, 17, 10, 0.72);
+  --ibza-text-faint: rgba(21, 17, 10, 0.48);
+
+  --ibza-panel-grad: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.6));
+  --ibza-panel-grad-strong: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.78));
+  --ibza-grid-line: rgba(17, 17, 17, 0.07);
+  --ibza-scan-line: rgba(17, 17, 17, 0.035);
+  --ibza-input-bg: rgba(17, 17, 17, 0.04);
+  --ibza-hover: rgba(17, 17, 17, 0.05);
+}
+
+.ibza-scope {
+  background: var(--ibza-void);
+  color: var(--ibza-text);
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+.ibza-mono {
+  font-family: var(--ibza-mono);
+}
+
+/* HUD label — small uppercase technical tags */
+.ibza-tag {
+  font-family: var(--ibza-mono);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ibza-text-faint);
+}
+
+/* glowing amber chip */
+.ibza-chip {
+  font-family: var(--ibza-mono);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ibza-amber);
+  border: 1px solid var(--ibza-amber-soft);
+  background: var(--ibza-amber-soft);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+/* scanline texture overlay */
+.ibza-scanlines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--ibza-scan-line) 0px,
+    var(--ibza-scan-line) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0.5;
+  z-index: 2;
+}
+
+/* grid backdrop */
+.ibza-grid-bg {
+  background-image:
+    linear-gradient(to right, var(--ibza-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--ibza-grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(circle at 50% 40%, black 10%, transparent 78%);
+  mask-image: radial-gradient(circle at 50% 40%, black 10%, transparent 78%);
+}
+
+/* glass panel */
+.ibza-panel {
+  background: var(--ibza-panel-grad);
+  border: 1px solid var(--ibza-line);
+  backdrop-filter: blur(14px);
+}
+
+.ibza-panel-strong {
+  background: var(--ibza-panel-grad-strong);
+  border: 1px solid var(--ibza-line-strong);
+  backdrop-filter: blur(18px);
+}
+
+/* corner brackets for "targeting" frames */
+.ibza-frame {
+  position: relative;
+}
+.ibza-frame::before,
+.ibza-frame::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: var(--ibza-amber);
+  border-style: solid;
+  opacity: 0.7;
+}
+.ibza-frame::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1px 0 0 1px;
+}
+.ibza-frame::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 1px 1px 0;
+}
+
+/* blinking rec dot */
+.ibza-rec {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--ibza-red);
+  box-shadow: 0 0 10px var(--ibza-red);
+  animation: ibza-blink 1.4s steps(2, start) infinite;
+}
+@keyframes ibza-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+/* live ping ring */
+.ibza-ping {
+  position: relative;
+  display: inline-flex;
+  width: 9px;
+  height: 9px;
+}
+.ibza-ping span:first-child {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--ibza-teal);
+  opacity: 0.7;
+  animation: ibza-pingExpand 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+.ibza-ping span:last-child {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--ibza-teal);
+}
+@keyframes ibza-pingExpand {
+  75%, 100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* big cinematic display heading */
+.ibza-display {
+  font-family: var(--ibza-mono);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+/* amber text glow */
+.ibza-glow-amber {
+  color: var(--ibza-amber);
+  text-shadow: 0 0 24px rgba(246, 181, 60, 0.35);
+}
+
+/* flicker animation for boot text */
+@keyframes ibza-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 22%, 24%, 55% { opacity: 0.35; }
+}
+.ibza-flicker {
+  animation: ibza-flicker 3.2s linear infinite;
+}
+
+/* marquee */
+@keyframes ibza-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.ibza-marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ibza-marquee 28s linear infinite;
+}
+
+/* slow rotate */
+@keyframes ibza-spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.ibza-spin-slow {
+  animation: ibza-spin-slow 40s linear infinite;
+}
+
+/* Make hardcoded white text adapt to theme inside iBzA areas.
+   Higher specificity than Tailwind's .text-white so it wins. */
+.ibza-scope .text-white,
+.ibza-portal .text-white {
+  color: var(--ibza-text);
+}
+
+/* hide native cursor only inside the immersive scope on desktop */
+@media (min-width: 768px) {
+  .ibza-scope,
+  .ibza-scope a,
+  .ibza-scope button {
+    cursor: none;
+  }
+}
+
+/* reduced motion respect */
+@media (prefers-reduced-motion: reduce) {
+  .ibza-marquee-track,
+  .ibza-spin-slow,
+  .ibza-flicker,
+  .ibza-rec,
+  .ibza-ping span:first-child {
+    animation: none !important;
   }
 }
