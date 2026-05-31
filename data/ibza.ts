@@ -43,9 +43,12 @@ export const marqueeWords = [
   'DIGITAL MARKETING',
   'GROWTH STRATEGY',
   'WEB APPLICATIONS',
+  'PORTFOLIO DESIGN',
+  'CREATIVE THINKER',
   'UI / UX DESIGN',
   'NEXT.JS · REACT',
   'PRODUCT LAUNCH',
+  'LEAD GENERATION',
 ]
 
 // Services / capabilities
@@ -252,9 +255,12 @@ export const products: IbzaProduct[] = [
     code: 'PRD-04',
     name: 'iBzA Flying Buds',
     category: 'Game / Interactive',
-    status: 'IN R&D',
-    desc: 'An original arcade-style game experience — fun, fast and built fully in-house. Launching as a standalone world.',
+    status: 'LIVE',
+    desc: 'An original arcade-style flight game — fun, fast and built fully in-house. Tap to fly, dodge obstacles, beat your best.',
     href: '/ibza-flying-buds',
     cta: 'Enter Game',
   },
 ]
+
+// Live deployment of the FlyBuds game (separate Vercel project)
+export const flyBudsUrl = 'https://fly-buds-game.vercel.app'
