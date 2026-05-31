@@ -106,7 +106,7 @@ export default function IbzaCycleOrbit() {
           className="ibza-panel-strong flex h-28 w-28 flex-col items-center justify-center rounded-full sm:h-36 sm:w-36"
         >
           <span className="ibza-glow-amber text-3xl">◆</span>
-          <span className="ibza-mono mt-1 text-[10px] uppercase tracking-[0.2em] text-white">iBzA</span>
+          <span className="ibza-mono mt-1 text-[10px] uppercase tracking-[0.2em] text-white">@iBzA</span>
           <span className="ibza-tag mt-0.5">CYCLE</span>
         </motion.div>
       </div>

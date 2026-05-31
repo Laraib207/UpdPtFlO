@@ -20,12 +20,12 @@ export default function IbzaCyclePage() {
     <IbzaSubPage
       code="PRD-01"
       kicker="MOBILITY / HARDWARE"
-      title="iBzA"
+      title="@iBzA"
       highlight="Cycle"
       status="LIVE"
     >
       <p className="max-w-2xl text-base leading-8 text-[var(--ibza-text-dim)] sm:text-lg">
-        iBzA Cycle is a bold next-gen cycle brand — engineered for design, awareness
+        @iBzA Cycle is a bold next-gen cycle brand — engineered for design, awareness
         and everyday performance. Explore the system below, then ride into the store.
       </p>
 
@@ -56,7 +56,7 @@ export default function IbzaCyclePage() {
         <p className="ibza-tag inline-flex items-center gap-2">
           <span className="ibza-ping"><span /><span /></span> STORE ONLINE
         </p>
-        <h3 className="ibza-mono mt-4 text-2xl font-bold text-white">Ready to ride iBzA Cycle?</h3>
+        <h3 className="ibza-mono mt-4 text-2xl font-bold text-white">Ready to ride @iBzA Cycle?</h3>
         <p className="mx-auto mt-3 max-w-md text-sm leading-7 text-[var(--ibza-text-dim)]">
           The store is live. Browse models, check pricing and grab yours.
         </p>

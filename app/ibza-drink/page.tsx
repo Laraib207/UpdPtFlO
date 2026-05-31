@@ -18,14 +18,14 @@ export default function IbzaDrinkPage() {
     <IbzaSubPage
       code="PRD-02"
       kicker="BEVERAGE / HYDRATION"
-      title="iBzA"
+      title="@iBzA"
       highlight="Drink"
       status="COMING SOON"
     >
       <p className="max-w-2xl text-base leading-8 text-[var(--ibza-text-dim)] sm:text-lg">
-        iBzA Drink is more than a bottle — it's a hydration brand. Premium build,
+        @iBzA Drink is more than a bottle — it's a hydration brand. Premium build,
         clean lines, and a bold identity that turns a daily habit into a statement.
-        The first product in the iBzA beverage line is in the works.
+        The first product in the @iBzA beverage line is in the works.
       </p>
 
       <div className="mt-12 grid gap-5 sm:grid-cols-2">
@@ -40,7 +40,7 @@ export default function IbzaDrinkPage() {
 
       <div className="ibza-panel-strong ibza-frame mt-12 rounded-3xl p-8 text-center">
         <p className="ibza-tag">// NOTIFY PROTOCOL</p>
-        <h3 className="ibza-mono mt-4 text-2xl font-bold text-white">Be first to grab iBzA Drink</h3>
+        <h3 className="ibza-mono mt-4 text-2xl font-bold text-white">Be first to grab @iBzA Drink</h3>
         <p className="mx-auto mt-3 max-w-md text-sm leading-7 text-[var(--ibza-text-dim)]">
           Launching soon. Want early access or a wholesale enquiry? Open a transmission.
         </p>

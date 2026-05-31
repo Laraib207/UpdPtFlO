@@ -34,7 +34,7 @@ export default function IbzaHero() {
             className="ibza-display text-[15vw] leading-[0.85] sm:text-7xl lg:text-[7.5rem]"
           >
             <span className="block text-white">{brand.operator}</span>
-            <span className="block ibza-glow-amber">/ iBzA</span>
+            <span className="block ibza-glow-amber">/ @iBzA</span>
           </motion.h1>
 
           <motion.p

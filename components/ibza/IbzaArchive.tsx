@@ -43,16 +43,24 @@ export default function IbzaArchive() {
               transition={{ duration: 0.55, delay: i * 0.06 }}
               className="ibza-panel ibza-frame group relative overflow-hidden rounded-3xl p-3 text-left transition hover:border-[var(--ibza-line-strong)]"
             >
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+              <div className={`relative aspect-[4/3] overflow-hidden rounded-2xl ${p.fit === 'contain' ? 'bg-white/[0.06]' : ''}`}>
                 <Image
                   src={p.cover}
                   alt={p.title}
                   fill
-                  className={`object-cover transition duration-700 group-hover:scale-105 ${
-                    p.classified ? 'blur-md brightness-50' : 'grayscale group-hover:grayscale-0'
+                  className={`transition duration-700 group-hover:scale-105 ${
+                    p.fit === 'contain' ? 'object-contain p-6' : 'object-cover'
+                  } ${
+                    p.classified
+                      ? 'blur-md brightness-50'
+                      : p.fit === 'contain'
+                      ? ''
+                      : 'grayscale group-hover:grayscale-0'
                   }`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--ibza-void)] via-transparent to-transparent" />
+                {p.fit !== 'contain' && (
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--ibza-void)] via-transparent to-transparent" />
+                )}
 
                 <span className="absolute left-3 top-3 ibza-tag ibza-glow-amber">{p.code}</span>
                 <span
@@ -109,14 +117,16 @@ export default function IbzaArchive() {
                 </button>
               </div>
 
-              <div className="relative aspect-[16/9] w-full overflow-hidden">
+              <div className={`relative aspect-[16/9] w-full overflow-hidden ${active.fit === 'contain' ? 'bg-white/[0.06]' : ''}`}>
                 <Image
                   src={active.cover}
                   alt={active.title}
                   fill
-                  className={`object-cover ${active.classified ? 'blur-md brightness-50' : ''}`}
+                  className={`${active.fit === 'contain' ? 'object-contain p-8' : 'object-cover'} ${active.classified ? 'blur-md brightness-50' : ''}`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--ibza-panel)] to-transparent" />
+                {active.fit !== 'contain' && (
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--ibza-panel)] to-transparent" />
+                )}
               </div>
 
               <div className="p-6">
@@ -152,7 +162,7 @@ export default function IbzaArchive() {
                     rel="noopener noreferrer"
                     className="mt-7 inline-flex items-center gap-2 rounded-full bg-[var(--ibza-amber)] px-6 py-3 text-[11px] font-bold uppercase tracking-[0.2em] text-black transition hover:scale-[1.03]"
                   >
-                    Visit Live Site →
+                    {active.link.includes('github.com') ? 'View on GitHub →' : 'Visit Live Site →'}
                   </a>
                 )}
               </div>

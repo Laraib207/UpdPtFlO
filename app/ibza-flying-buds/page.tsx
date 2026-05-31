@@ -26,13 +26,13 @@ export default function IbzaFlyingBudsPage() {
     <IbzaSubPage
       code="PRD-04"
       kicker="GAME / INTERACTIVE"
-      title="iBzA"
+      title="@iBzA"
       highlight="Flying Buds"
       status="LIVE"
     >
       <p className="max-w-2xl text-base leading-8 text-[var(--ibza-text-dim)] sm:text-lg">
-        iBzA Flying Buds is an original arcade-style flight game — fun, fast, and built
-        fully in-house. It now lives as its own standalone world inside the iBzA universe.
+        @iBzA Flying Buds is an original arcade-style flight game — fun, fast, and built
+        fully in-house. It now lives as its own standalone world inside the @iBzA universe.
         Launch it and see how long you can stay airborne.
       </p>
 
@@ -44,7 +44,7 @@ export default function IbzaFlyingBudsPage() {
         </p>
         <h3 className="ibza-mono mt-4 text-3xl font-bold text-white">Ready for takeoff?</h3>
         <p className="mx-auto mt-3 max-w-md text-sm leading-7 text-[var(--ibza-text-dim)]">
-          Launch iBzA Flying Buds in a new window and start your flight. Light/dark mode,
+          Launch @iBzA Flying Buds in a new window and start your flight. Light/dark mode,
           sound and live scoring included.
         </p>
 

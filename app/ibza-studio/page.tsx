@@ -18,12 +18,12 @@ export default function IbzaStudioPage() {
     <IbzaSubPage
       code="PRD-03"
       kicker="DIGITAL / SERVICES"
-      title="iBzA"
+      title="@iBzA"
       highlight="Studio"
       status="LAUNCHING SOON"
     >
       <p className="max-w-2xl text-base leading-8 text-[var(--ibza-text-dim)] sm:text-lg">
-        iBzA Studio is the services arm — where I help businesses build websites,
+        @iBzA Studio is the services arm — where I help businesses build websites,
         web apps, brands and the marketing systems that turn visitors into clients.
         One operator, full ownership, end-to-end execution.
       </p>

@@ -5,7 +5,7 @@
 // =============================================================
 
 export const brand = {
-  name: 'iBzA',
+  name: '@iBzA',
   operator: 'TheLaraib',
   fullName: 'Laraib Siddiqui',
   // iBzA expansion (chosen). Alternatives kept for reference.
@@ -18,9 +18,7 @@ export const brand = {
   email: 'laraibsiddiqui10ki@gmail.com',
   github: 'https://github.com/Laraib207',
   cycleStore: 'https://ms-cycle-shopp.vercel.app',
-  // TODO: apna WhatsApp number yahan daalo (country code ke saath, bina + ya space).
-  // Example India: 919876543210
-  whatsapp: '910000000000',
+  whatsapp: '916205771930',
   caseId: 'IBZA-2026',
   status: 'OPEN TO WORK // CONTRACTS: ENABLED // REMOTE READY',
   languages: ['Hindi — Native', 'English — Fluent'],
@@ -28,7 +26,7 @@ export const brand = {
 
 // Boot sequence lines for the intro loader
 export const bootLines = [
-  'INITIALIZING iBzA CORE...',
+  'INITIALIZING @iBzA CORE...',
   'LOADING OPERATOR PROFILE :: THELARAIB',
   'MOUNTING MISSION ARCHIVE...',
   'CALIBRATING GROWTH ENGINE [FREQ 42.0Hz]',
@@ -74,7 +72,7 @@ export const services = [
   {
     id: 'SVC-04',
     title: 'Company Growth Systems',
-    desc: 'End-to-end product and go-to-market structure — from idea to launch — for new ventures under the iBzA umbrella.',
+    desc: 'End-to-end product and go-to-market structure — from idea to launch — for new ventures under the @iBzA umbrella.',
     tags: ['Strategy', 'Launch', 'Systems'],
   },
 ]
@@ -90,7 +88,8 @@ export type IbzaProject = {
   stack: string[]
   cover: string
   link?: string
-  classified?: boolean
+  classified?: boolean 
+  fit?: 'cover' | 'contain' // 'contain' for logos so they aren't cropped
 }
 
 export const projects: IbzaProject[] = [
@@ -103,19 +102,22 @@ export const projects: IbzaProject[] = [
     summary:
       'A fully launched, production platform built and shipped end-to-end — live on its own domain and serving real users.',
     stack: ['Next.js', 'React', 'Tailwind CSS'],
-    cover: '/images/project-11.jpg',
+    cover: '/images/Veer Bharatlogo.png',
     link: 'https://www.veer-bharat.com',
+    fit: 'contain',
   },
   {
     code: 'FILE-02',
-    title: 'Mystic Moment',
+    title: 'Mystic Moments',
     category: 'Event Management / Web',
     year: '2025',
-    status: 'DEPLOYED',
+    status: 'LIVE',
     summary:
-      'A modern presence for an event management brand — showcasing services, galleries and enquiry flow with a premium, motion-rich feel.',
+      'A premium, motion-rich website for an event management brand — services, galleries and an enquiry flow that feels elegant and memorable.',
     stack: ['Next.js', 'Framer Motion', 'Tailwind CSS'],
-    cover: '/images/project-22.jpg',
+    cover: '/images/mysticmomentslogo.png',
+    link: 'https://courageous-alfajores-0d0600.netlify.app',
+    fit: 'contain',
   },
   {
     code: 'FILE-03',
@@ -126,42 +128,60 @@ export const projects: IbzaProject[] = [
     summary:
       'A product commerce app where customers browse and buy company products — clean catalog, cart and checkout-ready architecture.',
     stack: ['React', 'Node.js', 'Commerce UI'],
-    cover: '/images/project-3.jpg',
+    cover: '/images/seedsouleapp.jpg',
+    link: 'https://github.com/Laraib207/SeedSoul',
+    fit: 'cover',
   },
   {
     code: 'FILE-04',
-    title: 'iBzA Ecosystem',
-    category: 'Multi-Product Brand',
+    title: 'MS Cycle Shop',
+    category: 'E-Commerce / Store',
     year: '2026',
-    status: 'IN DEVELOPMENT',
+    status: 'LIVE',
     summary:
-      'The parent brand system — a launchpad for future products (iBzA Cycle, iBzA Drink and more) under one bold, unified identity.',
-    stack: ['Brand System', 'Strategy', 'Web'],
-    cover: '/images/project-40.jpg',
+      'A bold online cycle store — product showcase, catalog and a complete shopping experience for a next-gen cycle brand.',
+    stack: ['Next.js', 'React', 'Commerce UI'],
+    cover: '/images/mscycleshop.png',
+    link: 'https://ms-cycle-shopp.vercel.app',
+    fit: 'contain',
   },
   {
     code: 'FILE-05',
-    title: 'Classified Build',
-    category: 'Client Project',
-    year: '2025',
-    status: 'CONCEPT',
+    title: 'Influencer & Social Media',
+    category: 'Content / Digital Marketing',
+    year: '2026',
+    status: 'LIVE',
     summary:
-      'One of several client builds currently on temporary domains. Full case study unlocking soon — request access for details.',
-    stack: ['Next.js', 'Tailwind CSS'],
-    cover: '/images/project-5.jpg',
-    classified: true,
+      'Building a personal brand and audience across social platforms — content, reach and engagement that turns into real influence and leads.',
+    stack: ['Content', 'Branding', 'Growth'],
+    cover: '/images/socialmediainfulensar.jpg',
+    fit: 'cover',
   },
   {
     code: 'FILE-06',
-    title: 'Classified Build',
-    category: 'Client Project',
+    title: 'SKV Project',
+    category: 'Client Project / Web',
     year: '2025',
-    status: 'CONCEPT',
+    status: 'DEPLOYED',
     summary:
-      'Another deployed build awaiting its permanent home. Documentation in progress — request access for a walkthrough.',
-    stack: ['React', 'Web App'],
-    cover: '/images/project-6.jpg',
-    classified: true,
+      'A client web build designed and developed end-to-end — clean structure, responsive layout and a smooth, modern experience.',
+    stack: ['Next.js', 'React', 'Tailwind CSS'],
+    cover: '/images/codescreen.jpg',
+    link: 'https://skvproject-git-main-ayrickhans-projects.vercel.app',
+    fit: 'cover',
+  },
+  {
+    code: 'FILE-07',
+    title: 'Prime World Enterprises',
+    category: 'Business / Web',
+    year: '2025',
+    status: 'DEPLOYED',
+    summary:
+      'A professional business website for Prime World Enterprises — a credible, polished online presence built to convert visitors into enquiries.',
+    stack: ['Next.js', 'React', 'Tailwind CSS'],
+    cover: '/images/primewordinter.png',
+    link: 'https://prime-world-enterprises-4hlp-git-main-ayrickhans-projects.vercel.app',
+    fit: 'contain',
   },
 ]
 
@@ -188,7 +208,7 @@ export const skills = {
 export const timeline = [
   {
     range: '2026 →',
-    label: 'iBzA — Founder & Operator',
+    label: '@iBzA — Founder & Operator',
     detail: 'Building a multi-product brand ecosystem and growth studio based in Noida.',
   },
   {
@@ -226,7 +246,7 @@ export type IbzaProduct = {
 export const products: IbzaProduct[] = [
   {
     code: 'PRD-01',
-    name: 'iBzA Cycle',
+    name: '@iBzA Cycle',
     category: 'Mobility / Hardware',
     status: 'LIVE',
     desc: 'A bold next-gen cycle brand built around design, awareness and everyday performance.',
@@ -235,7 +255,7 @@ export const products: IbzaProduct[] = [
   },
   {
     code: 'PRD-02',
-    name: 'iBzA Drink',
+    name: '@iBzA Drink',
     category: 'Beverage / Hydration',
     status: 'COMING SOON',
     desc: 'A premium water bottle and hydration brand — clean design, bold identity, pure refreshment.',
@@ -244,7 +264,7 @@ export const products: IbzaProduct[] = [
   },
   {
     code: 'PRD-03',
-    name: 'iBzA Studio',
+    name: '@iBzA Studio',
     category: 'Digital / Services',
     status: 'LAUNCHING SOON',
     desc: 'The development & growth studio — websites, brands and marketing systems for clients.',
@@ -253,7 +273,7 @@ export const products: IbzaProduct[] = [
   },
   {
     code: 'PRD-04',
-    name: 'iBzA Flying Buds',
+    name: '@iBzA Flying Buds',
     category: 'Game / Interactive',
     status: 'LIVE',
     desc: 'An original arcade-style flight game — fun, fast and built fully in-house. Tap to fly, dodge obstacles, beat your best.',

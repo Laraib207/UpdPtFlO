@@ -35,7 +35,7 @@ export default function IbzaStoryPage() {
     <IbzaSubPage
       code={brand.caseId}
       kicker="SUBJECT BACKGROUND"
-      title="The iBzA"
+      title="The @iBzA"
       highlight="Story"
       status="DECRYPTED"
     >

@@ -66,7 +66,7 @@ export default function IbzaBoot({ onDone }: { onDone: () => void }) {
             </div>
 
             <p className="ibza-tag mt-5 text-center ibza-flicker">
-              iBzA SECURE TERMINAL · OPERATOR {brand.operator.toUpperCase()}
+              @iBzA SECURE TERMINAL · OPERATOR {brand.operator.toUpperCase()}
             </p>
           </div>
         </motion.div>
