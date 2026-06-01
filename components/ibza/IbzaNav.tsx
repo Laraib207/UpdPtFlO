@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { brand } from '../../data/ibza'
+import Image from 'next/image'
 import IbzaThemeToggle from './IbzaThemeToggle'
 
 const LINKS = [
@@ -26,13 +26,32 @@ export default function IbzaNav() {
     <div className="fixed left-0 top-0 z-50 w-full px-3 pt-3 sm:px-6 sm:pt-5">
       <div className="mx-auto max-w-7xl">
         <div
-          className={`flex items-center justify-between rounded-full px-5 py-3 transition-all duration-300 ${
+          className={`flex items-center justify-between rounded-full px-5 py-2.5 transition-all duration-300 ${
             scrolled ? 'ibza-panel-strong shadow-[0_10px_40px_rgba(0,0,0,0.5)]' : ''
           }`}
         >
-          <a href="#top" className="ibza-mono flex items-center gap-2 text-sm font-bold uppercase tracking-[0.28em] text-[var(--ibza-text)]">
-            <span className="ibza-glow-amber">◆</span> {brand.name}
-            <span className="hidden text-[var(--ibza-text-faint)] sm:inline">/ {brand.operator}</span>
+          <a
+            href="#top"
+            className="flex items-center gap-3"
+            aria-label="@iBzA — TheLaraib home"
+          >
+            <Image
+              src="/brand/ibza-icon.svg"
+              alt=""
+              width={44}
+              height={44}
+              priority
+              className="h-10 w-10 sm:h-12 sm:w-12"
+            />
+            <span className="flex flex-col leading-none">
+              <span className="ibza-mono text-xl font-extrabold tracking-tight sm:text-2xl">
+                <span className="ibza-glow-amber">@</span>
+                <span className="text-[var(--ibza-text)]">iBzA</span>
+              </span>
+              <span className="ibza-mono mt-1 text-[9px] font-bold uppercase tracking-[0.34em] text-[var(--ibza-teal)] sm:text-[10px]">
+                TheLaraib
+              </span>
+            </span>
           </a>
 
           <nav className="hidden items-center gap-7 md:flex">

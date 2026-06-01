@@ -94,10 +94,10 @@ export default function IbzaHero() {
 
           <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-[var(--ibza-line)]">
             <Image
-              src="/images/iBzAthelaraib.png"
-              alt="iBzA — TheLaraib brand identity"
+              src="/brand/ibza-icon.svg"
+              alt="@iBzA — TheLaraib official logo"
               fill
-              className="object-contain p-6"
+              className="object-contain p-8"
               priority
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--ibza-void)] via-transparent to-transparent" />
